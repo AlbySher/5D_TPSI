@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-sm-6 bg-warning">
+    <h3>Beta testing</h3>
+    <h4>Numero di test eseguiti: {{numTests}}</h4> <!--"one way binding", ovvero a senso unico (da ts a html)-->
+  </div>
+  <div class="col-sm-6 bg-light">
+    <h3>Confronto tra interpolazione di stringa e proprietà vincolante</h3>
+    <h4>Interpolazione di stringa: <span class="text-primary">{{car.model}}</span></h4>
+    <h4>Proprietà vincolante: <span class="text-danger" [textContent]="car.model"></span></h4>
+    <hr width="70%">
+    <div><img src="{{car.img}}" alt="NO IMAGE"></div>
+    <div><img [src]="car.img" alt="NO IMAGE"></div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-6 bg-info bg-opacity-50 p-3">
+    <h3>Test evento click su un button</h3>
+    <button class="btn btn-primary" (click)="getClick()">Test Button</button>
+  </div>
+  <div class="col-sm-6">
+    <h3>Vendita dell'auto</h3>
+    <button class="btn btn-dark" [disabled]="!car.available">Vendi Auto</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 bg-success">
+    <h3>Binding delle classi CSS</h3>
+    <p [class]="myClass">Testo formattato in rosso</p>
+    <p [class.blue]="setBlueClass">Testo scritto in blu...forse</p>
+  </div>
+  <div class="col-sm-6 bg-dark text-white">
+    <h3>Direttiva ngClass</h3>
+    <p [ngClass]="componentClasses">Paragrafo formattato tramite ngClass</p>
+    <p [ngClass]="{
+      'cl1':!formOk,
+      'cl2':formOk && admin
+    }">Paragrafo formattato dinamicamente</p>
+    <p>formOk: {{formOk}}</p>
+    <p>admin: {{admin}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 bg-warning">
+    <h3>Direttiva ngStyle</h3>
+    <p [ngStyle]="componentStyle">Paragrafo formattato con direttiva ngStyle</p>
+  </div>
+  <div class="col-sm-6">
+    <p><input type="color" #myColor></p>
+    <p><input type="range" [(ngModel)]="textSize" min="0" max="1000"></p>
+    <h5>Valore di textSize: {{textSize}}</h5>
+    <p [ngStyle]="{'font-size':textSize+'px', 'color':myColor.value}">
+      Testo modificato dinamicamente in dimensioni e colore
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h3>Two way binding con direttiva ngModel</h3>
+    <p>Inserire nome utente: <input type="text" [(ngModel)]="username"></p>
+    <p>Inserire il voto: <input type="number" [(ngModel)]="voto">
+      <span style="color: red" *ngIf="voto > 10 || voto < 2">Il voto inserito non è valido</span>
+      <!--se ngIf è true allora l'elemento viene visualizzato, altrimenti no-->
+    </p>
+    <p><button class="btn btn-success" (click)="inviaDati()">Invia dati</button></p>
+    <p>Username inserito: {{username}}</p>
+    <p [style.background-color]="getColor()" class="m-4">Voto registrato: {{voto}}</p>
+  </div>
+  <div class="col-sm-6 bg-dark text-white">
+    <h3>Direttiva ngFor</h3>
+    <h4>Lista degli ingredienti</h4>
+    <div class="row" *ngFor="let item of ingredients;
+                  let i=index;
+                  let pari = even;
+                  let dispari = odd" [ngClass]="{clsPari:pari, clsDispari:dispari}">
+      <!--il div è duplicato sul dom per ogni elemento del vettore-->
+      <div class="col-sm-5" style="height: 40px;line-height: 40px">{{i+1}} - {{item}}</div>
+      <div class="col-sm-7"><button class="btn btn-primary w-100" (click)="delete(item)">ELIMINA INGREDIENTE</button></div>
+    </div>
+  </div>
+</div>

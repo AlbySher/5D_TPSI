@@ -1,0 +1,50 @@
+img{
+  width: 400px;
+}
+
+.red{
+  color: red;
+  font-size: 18pt;
+}
+
+.blue{
+  color: blue;
+  font-weight: bold;
+}
+
+.show{
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  padding: 30px;
+}
+
+.warning{
+  background-color: darkgoldenrod;
+  font-size: 30pt;
+  color:white;
+}
+
+.cl1{
+  background-color: red;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.cl2{
+  font-size: 50pt;
+}
+
+.clsPari{
+  background-color: yellow;
+  color: blue;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.clsDispari{
+  text-decoration: underline;
+  color: red;
+}
+

@@ -1,0 +1,43 @@
+ANGULAR
+
+Framework javascript/typescript
+Linguaggio lato client
+Organizzazione per componenti autonomi
+Nasce per gestire single page application
+
+Ogni componente composto da 3 file:
+file html, file typescript, file css
+
+npm install -g @angular/cli
+ng è il prefisso per i comandi angular
+ng v
+
+il path è una variabile d'ambiente di windows
+è un insieme di percorsi "riconosciuti" in cui si trovano degli eseguibili
+è un po' come rendere universale un path, una locazione di un eseguibile
+quegli eseguibili saranno lanciabili da comando cmd da qualunque locazione
+
+se non si è amministratori il path di sistema non viene cambiato nel momento in cui angular è installato
+quindi ng non risulta un comando riconosciuto e dobbiamo inserire il percorso di ng.cmd sul path
+per sapere il percorso di npm scrivere comando npm config get prefix
+
+COME CEARE UN PROGETTO ANGULAR VIA CODICE
+ng new [NOME] --skip-tests true
+quando si fa un backup dell'applicazione non portiamo sul cloud la cartella node_modules
+
+src -> cartella sorgente del progetto
+cartella app-> file dei componenti
+
+angular.json
+prefix -> prefisso dei file dei componenti
+vettori styles e script linkati globalmente
+
+installare bootstrap
+aggiungere path relativo (quello che parte da node_modules) nel vettore styles prima di styles.css
+attenzione: non dev'essere powershell ma cmd
+
+ng serve -> serve per compilare l'applicazione [typescript] e avviare il server web su una porta del localhost
+per aprirlo direttamente da browser: ng serve -o
+il browser si aggiorna automaticamente: il progetto è ricompilato ogni volta che apporto una modifica sul codice
+interpolazione variabili ts su html :{{}}
+
